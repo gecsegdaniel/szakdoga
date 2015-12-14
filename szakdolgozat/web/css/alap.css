@@ -1,0 +1,229 @@
+/*
+    Body tulajdonságai:
+*/
+body{
+    margin: 10px 0 5px 0; padding: 0; text-align: left;
+    background-color: #CDCDCD;
+}
+.clear{ clear: both; }
+a{ text-decoration: none; color: #cc0033;}
+a:hover{ text-decoration: underline; }
+
+/*
+    Menü tulajdonságai:
+*/
+#menu{
+    background-color: #666666;
+    height: 40px;
+    margin: 0 auto;
+    width: 70%;
+    border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
+}
+#menu ul{
+    list-style:  none;
+    margin: 0 auto;
+    float: left;
+}
+#menu ul li{
+    float: left;
+    display: inline;
+    height: 30px;
+    padding: 5px 10px;
+    width: 150px;
+}
+#menu ul li a{
+    text-decoration: none;
+    color: #fff;
+    background-color: #cc0033;
+    display: block;
+    padding: 5px 0;
+    border-radius: 15px;  -moz-border-radius: 15px;  -webkit-border-radius: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+#menu ul li a:hover{
+    background-color: #fff;  color: #cc0033;
+    transition: 0.5s;
+}
+
+/*
+    Tartó-div tulahdonságai:
+*/
+#tartalom-div{
+    overflow: hidden;
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 10px;
+}
+
+/*
+    Slider tul.:
+*/
+#tartalom-top{
+    width: 70%;  height: 300px;  float: left;
+    background-color: #f9ecec;
+}
+
+.ablakcim{
+    width: 90%;
+    background-color: #666;
+    color: #fff;
+    padding: 5px 10px;
+    display: block;
+    border: 1px solid #666;
+    border-bottom: 0;
+    float: right;
+    border-top-left-radius: 5px;  border-top-right-radius: 5px;
+}
+
+
+/*
+    Belépés
+*/
+#belepes{
+    width: 30%;  height: 210px;  float: left;
+}
+#belepes div{
+    width: 90%;
+    color: #fff;
+    padding: 15px 10px;
+    display: block;
+    border: 1px solid #666;
+    border-top: 0;
+    border-bottom-left-radius: 5px;  border-bottom-right-radius: 5px;
+    float: right;
+    height: 140px;
+    background: #cccccc; /* Old browsers */
+    background: -moz-linear-gradient(top, #cccccc 0%, #ffffff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #cccccc 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #cccccc 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    overflow: inherit;
+}
+#belepes table{
+    width: 90%;
+    color: #666;
+}
+#belepes table .cimke{
+    width: 30%;
+}
+#belepes table input[type="email"], input[type="password"]{
+    border: 1px solid #cc0033;
+    width: 90%;
+}
+#belepes table input[type="submit"]{
+    background-color: #cc0033;
+    color: #fff;
+    width: 45%;
+    height: 40px;
+    border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 16px;
+}
+#belepes table ul{
+    text-align: left;
+    float: left;
+    padding: 0;
+    margin: 5px auto;
+}
+
+/*
+    Keresés
+*/
+#kereses{
+    width: 30%;  height: 90px;  float: left;
+}
+#kereses div{
+     width: 90%;
+     color: #fff;
+     padding: 2px 10px;
+     display: block;
+     border: 1px solid #666;
+     border-top: 0;
+     border-bottom-left-radius: 5px;  border-bottom-right-radius: 5px;
+     float: right;
+     height: 45px;
+    background: #cccccc; /* Old browsers */
+    background: -moz-linear-gradient(top, #cccccc 0%, #ffffff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #cccccc 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #cccccc 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+#kereses table{
+    width: 90%;
+}
+#kereses input{
+    border: 1px solid #cc0033;  width: 100%;  height: 30px;
+}
+ #kereses button{
+     height: 37px;
+     width: 37px;
+     background:#cc0033 url('../images/search.png') no-repeat;
+     cursor: pointer;
+     border: 0;
+     overflow: hidden;
+     /* IE 6/7 fallback */
+     *text-indent: -9999px;
+     border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
+ }
+
+/*
+    Lábléc tulajdonságai:
+*/
+footer{
+    background-color: #666666;
+    height: 30px;
+    margin: 0 auto;  margin-top: 10px;
+    width: 70%;
+    border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
+}
+footer p{ color: #fff;  padding: 5px 0;  margin-left: 10px;  }
+
+/*
+    Mobil eszközről nézve:
+*/
+@media only screen and (max-width : 550px){
+    body{ font-size: smaller; }
+    #menu{ width: 95%; height: 35px; }
+    #tartalom-div{ width: 95%; }
+    footer{ width: 95%; }
+    #felxi{ display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+
+        -webkit-flex-flow: column-reverse;
+        flex-flow: column-reverse;
+    }
+
+    #menu ul li{ width: 100px; height: 25px; padding: 5px 5px; }
+    #menu ul li a{ font-size: 13px; }
+
+    /*#belepes, #kereses, #tartalom-top{ width: 100%; height: auto; margin: 5px auto; float: none; }*/
+    #kereses{ width: 100%; height: auto; margin: 5px auto; }
+    #belepes{ width: 100%; height: auto; margin: 5px auto; }
+    #tartalom-top{ width: 100%; height: auto; margin: 5px auto; }
+
+    .ablakcim, #belepes div, #kereses div{ float: none; margin: 0 auto; width: 95% }
+
+    #belepes table, #belepes p{ width: 95%; color: #666; }
+    #belepes table .cimke{ width: 25%; }
+    #belepes table input[type="submit"]{ width: 40%; height: 30px; font-size: 13px; }
+}
+
+/*
+    Kisebb felbontású képernyőn a méretek: (pl. tablet)
+*/
+@media only screen and (min-width : 551px) and (max-width : 1100px){
+    body{ font-size: smaller; }
+    #menu{ width: 90%; height: 35px; }
+    #tartalom-div{ width: 90%; }
+    footer{ width: 90%; }
+
+    #menu ul li{ width: 120px; height: 25px; }
+    #menu ul li a{ font-size: 15px; border-radius: 10px;  -moz-border-radius: 10px;  -webkit-border-radius: 10px; }
+
+    #belepes table, #belepes p{ width: 95%; color: #666; }
+    #belepes table .cimke{ width: 37%; }
+    #belepes table input[type="submit"]{ width: 55%; height: 30px; font-size: 13px; }
+}

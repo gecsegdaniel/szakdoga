@@ -1,0 +1,12 @@
+{% extends 'SzakdogaBundle::alap.html.twig' %}
+
+{% block stilusok %}
+    {{  parent() }}
+    <link rel="stylesheet" href="{{ asset('css/kapcsolat.css') }}" type="text/css">
+{% endblock %}
+
+{% block tartalom %}
+    {{ parent() }}
+    <div id="slide">Kapcsolat jön ide majd ha minden igaz :))</div>
+
+{% endblock %}

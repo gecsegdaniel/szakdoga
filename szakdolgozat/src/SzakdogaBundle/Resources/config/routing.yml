@@ -1,0 +1,29 @@
+szakdoga_homepage:
+    path:     /
+    defaults: { _controller: SzakdogaBundle:Page:index }
+    requirements:
+     methods: GET|POST
+#Page: ezittaz ....Action() metódus akar lenni. :)
+szakdoga_szallasok:
+    path:     /szallasok/{oldal}
+    defaults: { _controller: SzakdogaBundle:Page:szallasok, oldal: 1 }
+    requirements:
+     methods: GET|POST
+
+szakdoga_kapcsolat:
+    path:     /kapcsolat
+    defaults: { _controller: SzakdogaBundle:Page:kapcsolat }
+    requirements:
+     methods: GET|POST
+
+szakdoga_logout:
+    path:     /logout
+    defaults: { _controller: SzakdogaBundle:Page:logout }
+    requirements:
+     methods: GET
+
+szakdoga_szallas:
+    path:    /szallas/{id}
+    defaults: { _controller: SzakdogaBundle:Page:szallas, id: 0 }
+    requirements:
+    methods: GET

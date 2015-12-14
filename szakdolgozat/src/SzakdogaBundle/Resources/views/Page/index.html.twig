@@ -1,0 +1,69 @@
+{% extends 'SzakdogaBundle::alap.html.twig' %}
+
+{% block stilusok %}
+    {{  parent() }}
+    <link rel="stylesheet" href="{{ asset('css/fooldal.css') }}" type="text/css">
+{% endblock %}
+
+{% block tartTop %}
+    <div id="udvozlo">
+        Valami szar a főoldalra... Üdvözlőszöveg. üd itt kis ratyikám, válogass szépen és utána foglaljad le a szobát!
+        Szexhirdetés ez amúgy..:D
+    </div>
+{% endblock %}
+
+{% block tartalom %}
+    {{ parent() }}
+    <div class="clear"></div>
+    <div id="szallasok">
+        <h4>Kiemelt szállások</h4>
+        {% for szallas in szallasok %}
+        <article>
+            <header>
+                <a title="További információk" href="{{ path('szakdoga_szallas', {'id':szallas.id } ) }}">{{ szallas.nev }}</a>
+            </header>
+            <div class="ajanlat-body">
+                <div class="kep">
+                    <img src="szallasKepek/{{ szallas.belyegkep.kepnev }}" width="100" alt="">
+                </div>
+                <div class="leiras">
+                    {{ szallas.varos }}, {{ szallas.cim }}
+                    <br/><br/>
+                    {{ szallas.leiras|length > 150 ? szallas.leiras|slice(0, 150) ~ '...' : szallas.leiras|nl2br }}
+                </div>
+                <div class="clear"></div>
+                <p>
+                    <a title="További információk" href="{{ path('szakdoga_szallas', {'id':szallas.id } ) }}">
+                        <img src="{{ asset('images/info.png') }}" width="30" alt="Megtekintés">
+                    </a>
+                </p>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+
+    <div id="top-oldal">
+        <span class="ablakcim">Szoba-kereső</span>
+        <div id="top-div" class="oldalMenu">
+            nana mi ez?
+        </div>
+    </div>
+    <div id="mid-oldal">
+        <span class="ablakcim">Hasznos likek</span>
+        <div id="mid-div" class="oldalMenu">
+            juhuj<br>
+            juhuj<br>
+            juhuj<br>
+            juhuj<br>
+            juhuj<br>
+            telegyélnagy
+        </div>
+    </div>
+    <div id="bottom-oldal">
+        <span class="ablakcim">Közösségi izék</span>
+        <div id="bottom-div" class="oldalMenu">
+            ajajajajaj
+        </div>
+    </div>
+
+{% endblock %}

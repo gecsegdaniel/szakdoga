@@ -1,0 +1,60 @@
+#szallasok {
+    height: auto;
+    min-height: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+#szallasok article{
+    background-color: #fff;
+    width: 45%;
+    margin: 5px 1%;
+    padding: 5px 5px;
+    border-radius: 10px;  -moz-border-radius: 10px;  -webkit-border-radius: 10px;
+    float: left;
+    height: 210px;
+}
+#szallasok article .ajanlat-body{
+    margin-top: 5px;
+    border: 1px solid #666;
+    border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
+}
+#szallasok article header{
+    width: 96%;
+    margin: 0;
+    padding: 3px 2%;
+    background-color: #666;
+    border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
+    color: #fff;
+}
+#szallasok article header a{
+    text-decoration: none;
+    color: #fff;
+}
+#szallasok article p{
+    text-align: right;
+    padding: 5px;
+    margin: 0;
+}
+
+#szallasok .kep{
+    float: left;
+    width: 110px;
+    height: auto;
+    text-align: center;
+    padding: 5px 5px;
+    margin: 5px 5px;
+    background-color: #e6e1e3;
+}
+#szallasok .leiras{
+    padding: 5px;
+    height: 125px;
+}
+
+
+@media only screen and (max-width : 550px){
+    #szallasok article{
+        width: 98%;
+        margin: 5px 0;
+        float: none;
+    }
+}

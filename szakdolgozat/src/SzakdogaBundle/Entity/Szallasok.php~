@@ -1,0 +1,170 @@
+<?php
+
+namespace SzakdogaBundle\Entity;
+
+/**
+ * Szallasok
+ */
+class Szallasok
+{
+    /**
+     * @var string
+     */
+    private $nev;
+
+    /**
+     * @var string
+     */
+    private $varos;
+
+    /**
+     * @var string
+     */
+    private $cim;
+
+    /**
+     * @var string
+     */
+    private $leiras;
+
+    /**
+     * @var string
+     */
+    private $opciok;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+
+    /**
+     * Set nev
+     *
+     * @param string $nev
+     *
+     * @return Szallasok
+     */
+    public function setNev($nev)
+    {
+        $this->nev = $nev;
+
+        return $this;
+    }
+
+    /**
+     * Get nev
+     *
+     * @return string
+     */
+    public function getNev()
+    {
+        return $this->nev;
+    }
+
+    /**
+     * Set varos
+     *
+     * @param string $varos
+     *
+     * @return Szallasok
+     */
+    public function setVaros($varos)
+    {
+        $this->varos = $varos;
+
+        return $this;
+    }
+
+    /**
+     * Get varos
+     *
+     * @return string
+     */
+    public function getVaros()
+    {
+        return $this->varos;
+    }
+
+    /**
+     * Set cim
+     *
+     * @param string $cim
+     *
+     * @return Szallasok
+     */
+    public function setCim($cim)
+    {
+        $this->cim = $cim;
+
+        return $this;
+    }
+
+    /**
+     * Get cim
+     *
+     * @return string
+     */
+    public function getCim()
+    {
+        return $this->cim;
+    }
+
+    /**
+     * Set leiras
+     *
+     * @param string $leiras
+     *
+     * @return Szallasok
+     */
+    public function setLeiras($leiras)
+    {
+        $this->leiras = $leiras;
+
+        return $this;
+    }
+
+    /**
+     * Get leiras
+     *
+     * @return string
+     */
+    public function getLeiras()
+    {
+        return $this->leiras;
+    }
+
+    /**
+     * Set opciok
+     *
+     * @param string $opciok
+     *
+     * @return Szallasok
+     */
+    public function setOpciok($opciok)
+    {
+        $this->opciok = $opciok;
+
+        return $this;
+    }
+
+    /**
+     * Get opciok
+     *
+     * @return string
+     */
+    public function getOpciok()
+    {
+        return $this->opciok;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
