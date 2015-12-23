@@ -1,3 +1,0 @@
-szakdoga:
-    resource: "@SzakdogaBundle/Resources/config/routing.yml"
-    prefix:   /

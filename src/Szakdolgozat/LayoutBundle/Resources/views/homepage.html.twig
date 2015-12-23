@@ -1,0 +1,30 @@
+{% extends 'SzakdolgozatLayoutBundle:Main:index.html.twig' %}
+
+{% block stilusok %}
+    {{  parent() }}
+    <link rel="stylesheet" href="{{ asset('css/szallas_list.css') }}" type="text/css">
+{% endblock %}
+
+{% block tartalom %}
+    <h4>Kiemelt szállások</h4>
+    <article>
+        <header>
+            <a title="További információk" href="">szallas.nev</a>
+        </header>
+        <div class="ajanlat-body">
+            <div class="kep">
+                <img src="szallasKepek/szallas.belyegkep.kepnev" width="100" alt="">
+            </div>
+            <div class="leiras">
+                szallas.varos, szallas.cim
+                <br/><br/>
+            </div>
+            <div class="clear"></div>
+            <p>
+                <a title="További információk" href="">
+                    <img src="{{ asset('images/info.png') }}" width="30" alt="Megtekintés">
+                </a>
+            </p>
+        </div>
+    </article>
+{% endblock %}

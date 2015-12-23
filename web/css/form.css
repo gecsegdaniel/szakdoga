@@ -1,0 +1,32 @@
+#form{
+    background-color: #fff;
+    width: 70%; margin: 10px auto; padding: 10px 15px;
+    border-radius: 10px;  -moz-border-radius: 10px;  -webkit-border-radius: 10px;
+    box-shadow: 0 0 1px 2px #666;
+    color: #333;
+}
+
+#form #error-div{
+    color: #F00;
+    border: 1px solid #F00;
+    padding: 5px;
+    border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
+}
+
+#form label{ display:inline-block; float: left; padding-top: 3px;  width: 140px; }
+#form input{ margin-top: 5px; margin-bottom: 5px; display:inline-block; margin-left:20px; border: 1px solid #cc0033; }
+#form li{ margin-top: 5px; margin-bottom: 5px; display:block; margin-left:20px; border: 1px solid #cc0033; float: right; }
+
+input[type="submit"]{
+    background-color: #cc0033; color: #fff;
+    width: 100px; height: 40px;
+    border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width : 550px){ #form{ float: none; margin: 0 auto; width: 85% } #form label{ width: 90px;} #form input{ width: 140px; } }
+
+@media only screen and (min-width : 551px) and (max-width : 1100px){ #form{ width: 85%; margin: 10px auto; } #form label{ width: 100px;} }

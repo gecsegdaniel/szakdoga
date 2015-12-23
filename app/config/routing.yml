@@ -1,0 +1,27 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+homepage:
+    path:     /
+    defaults: { _controller: SzakdolgozatLayoutBundle:Home:index }
+    requirements:
+     methods: GET|POST
+
+szallasok:
+    path:     /szallasok
+    defaults: { _controller: SzakdolgozatLayoutBundle:Home:index }
+    requirements:
+     methods: GET|POST
+
+kapcsolat:
+    path:     /kapcsolat
+    defaults: { _controller: SzakdolgozatLayoutBundle:Home:index }
+    requirements:
+     methods: GET|POST
+
+szallas:
+    path:     /szallas
+    defaults: { _controller: SzakdolgozatLayoutBundle:Home:index }
+    requirements:
+     methods: GET|POST
+

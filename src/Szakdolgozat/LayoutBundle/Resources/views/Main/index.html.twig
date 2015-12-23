@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Szakdolgozat</title>
+    {% block stilusok %}
+        <link rel="stylesheet" href="{{ asset('css/alap.css') }}" type="text/css"/>
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+    {% block javascriptek %}
+    {% endblock %}
+</head>
+<body>
+<header>
+    <nav id="menu">
+        {{ knp_menu_render('SzakdolgozatLayoutBundle:MenuBuilder:mainMenu') }}
+    </nav>
+</header>
+<div id="top-div">
+    <div id="belepes">
+        <span class="ablakcim">Fiók</span>
+        <div class="ablak">
+            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                Üdvözlöjük {{ app.user.username }}!<br/>
+                <a href="{{ path('fos_user_profile_show') }}">Profil</a>
+                <a href="{{ path('fos_user_security_logout') }}">Kilépés</a>
+            {% else %}
+                Az oldal teljeskörű használatához jelentkezzen be!<br/>
+                <a href="{{ path('fos_user_security_login') }}">Belépés</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="kereses">
+        <span class="ablakcim">Keresés</span>
+        <div class="ablak">
+            <table border="0" align="center">
+                <form action="" method="post">
+                    <tr>
+                        <td><input type="search" name="kereses" maxlength="100" placeholder="Keresés.."/></td>
+                        <td width="40">
+                            <button type="submit"></button>
+                        </td>
+                    </tr>
+                </form>
+            </table>
+        </div>
+    </div>
+
+    <div id="kozossegi">
+        <span class="ablakcim">Közösségi izék</span>
+        <div class="ablak">
+            FB <br>
+            Twiit
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="clear"></div>
+<div id="body-div">
+    <div id="tartalom-div">
+        {% block tartalom %}
+        {% endblock %}
+    </div>
+    <div id="top-oldal">
+        <span class="ablakcim">Szoba-kereső</span>
+        <div class="ablak">
+            nana mi ez?
+        </div>
+    </div>
+    <div id="mid-oldal">
+        <span class="ablakcim">Hasznos likek</span>
+        <div class="ablak">
+            juhuj<br>
+            juhuj<br>
+            juhuj<br>
+            juhuj<br>
+            juhuj<br>
+            telegyélnagy
+        </div>
+    </div>
+</div>
+<footer>
+    <p>Copyright &copy; Gécseg Dániel - szakdolgozat</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{% extends "SzakdolgozatLoginBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+    <h3>Profil</h3>
+{% include "FOSUserBundle:Profile:show_content.html.twig" %}
+    <a href="{{ path('fos_user_profile_edit') }}">Adatok szerkesztése</a><br/>
+    <a href="{{ path('fos_user_change_password') }}">Jelszó módosítása</a>
+{% endblock fos_user_content %}
