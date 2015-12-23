@@ -1,4 +1,4 @@
 szakdolgozat
 ============
 
-A Symfony project created on December 20, 2015, 3:10 pm.
+E projekt szakdolgozatom céljából készült, FOSUserBundle-t, KnpMenuBnudle-t tartalmaz. Elsősorban ezek megvalósítását tartlamazza.
