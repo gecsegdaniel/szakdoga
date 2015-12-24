@@ -6,7 +6,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: hu
+    locale: en
 
 framework:
     #esi:             ~
@@ -75,3 +75,42 @@ knp_menu:
     templating: false
 
     default_renderer: twig
+
+easy_admin:
+    site_name: 'Adminisztráció'
+    entities:
+        User:
+          label: 'Felhasználók'
+          class: Szakdolgozat\LoginBundle\Entity\User
+          list:
+            title: '%%entity_label%% listája'
+            fields:
+              - {property: 'username', label: 'Felhasználónév'}
+              - 'email'
+              - {property: 'enabled', label: 'Aktivált'}
+              - {property: 'lastLogin', label: 'Utoljára belépve'}
+          disabled_actions: ['new']
+          edit:
+            fields:
+            - {property: 'username', label: 'Felhasználónév'}
+            - 'email'
+            - {property: 'enabled', label: 'Aktivált'}
+            - {property: 'roles', label: 'Jog'}
+            title:  'Felhasználó módosítása'
+          show:
+            fields:
+            - {property: 'username', label: 'Felhasználónév'}
+            - 'email'
+            - {property: 'lastLogin', label: 'Utoljára belépve'}
+            - {property: 'enabled', label: 'Aktivált'}
+            - {property: 'roles', label: 'Jog'}
+            title:  'Felhasználó adatai'
+
+    design:
+            brand_color: '#cc0033'
+            form_theme: 'horizontal'
+
+    formats:
+            date:     'Y.m.d.'
+            time:     'H:i'
+            datetime: 'Y.m.d. H:i:s'

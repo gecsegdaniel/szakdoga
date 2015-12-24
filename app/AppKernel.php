@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new Szakdolgozat\LoginBundle\SzakdolgozatLoginBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Szakdolgozat\LayoutBundle\SzakdolgozatLayoutBundle(),
+
+            new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
