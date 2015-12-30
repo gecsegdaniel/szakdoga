@@ -4,13 +4,13 @@ namespace Szakdolgozat\LayoutBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class HomeController extends Controller
+class ApartmentsController extends Controller
 {
     public function indexAction()
     {
         $apartmentRepository = $this->getDoctrine()->getManager()->getRepository('SzakdolgozatLayoutBundle:Apartment');
-        $apartments = $apartmentRepository->findBy(array('highlighted' => 1));
+        $apartments = $apartmentRepository->findAll();
 
-        return $this->render('SzakdolgozatLayoutBundle::homepage.html.twig', array( 'apartments' => $apartments));
+        return $this->render('SzakdolgozatLayoutBundle::apartments.html.twig', array( 'apartments' => $apartments));
     }
 }

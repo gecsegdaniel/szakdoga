@@ -1,0 +1,65 @@
+{% extends 'SzakdolgozatLayoutBundle:Main:index.html.twig' %}
+
+{% block stilusok %}
+    {{  parent() }}
+    <link rel="stylesheet" href="{{ asset('css/apartment.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('js/clearbox/config/default/cb_style.css') }}" type="text/css" />
+{% endblock %}
+
+{% block tartalom %}
+    <div id="fo-leiras">
+        <h4>{{ apartment.name }}</h4>
+        <div id="kep">
+            <img src="{{ asset('images/3.jpg') }}" alt=""/><br>
+        </div>
+        <div id="cim">
+            <img src="{{ asset('images/address.png') }}" width="18" alt=""> {{ apartment.city }}, {{ apartment.address }}<br>
+            <a href="{{ apartment.webpage }}" target="_blank">{{ apartment.webpage }}</a>
+        </div>
+        <div id="opciok">
+            {% for option in options %}
+                <img src="{{ asset(option) }}" alt="" title="" width="30"/>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="tabok">
+        <div class="tab">
+            <input type="radio" id="tab-1" name="tab-group-1" checked>
+            <label for="tab-1">Leírás</label>
+
+            <div class="content">
+                <p>{{ apartment.description|nl2br }}</p>
+            </div>
+        </div>
+
+        <div class="tab">
+            <input type="radio" id="tab-2" name="tab-group-1">
+            <label for="tab-2">Szobák</label>
+
+            <div class="content">
+                <table>
+                    <tr>
+                        <td id="szobaszam">Szobaszám</td>
+                        <td id="fo">Fő</td>
+                        <td id="agy">Ágyak</td>
+                        <td id="legter">Légtér</td>
+                        <td id="ar">Ára</td>
+                        <td id="foglalo">Foglal</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab">
+            <input type="radio" id="tab-3" name="tab-group-1">
+            <label for="tab-3">Galéria</label>
+
+            <div class="content">
+                <div id="galeria">
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

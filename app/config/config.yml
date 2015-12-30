@@ -105,6 +105,16 @@ easy_admin:
             - {property: 'enabled', label: 'Aktivált'}
             - {property: 'roles', label: 'Jog'}
             title:  'Felhasználó adatai'
+        Apartment:
+          label: 'Apartmanok'
+          class: Szakdolgozat\LayoutBundle\Entity\Apartment
+          list:
+            title: '%%entity_label%% listája'
+            fields:
+              - {property: 'name', label: 'Neve'}
+              - {property: 'city', label: 'Város'}
+              - {property: 'highlighted', label: 'Kiemelt'}
+
 
     design:
             brand_color: '#cc0033'

@@ -14,7 +14,7 @@ homepage:
 
 szallasok:
     path:     /szallasok
-    defaults: { _controller: SzakdolgozatLayoutBundle:Home:index }
+    defaults: { _controller: SzakdolgozatLayoutBundle:Apartments:index }
     requirements:
      methods: GET|POST
 
@@ -25,8 +25,7 @@ kapcsolat:
      methods: GET|POST
 
 szallas:
-    path:     /szallas
-    defaults: { _controller: SzakdolgozatLayoutBundle:Home:index }
+    path:     /szallas/{id}
+    defaults: { _controller: SzakdolgozatLayoutBundle:Apartment:index, id: 0 }
     requirements:
-     methods: GET|POST
-
+     methods: GET
