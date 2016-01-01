@@ -4,10 +4,13 @@ namespace Szakdolgozat\LayoutBundle\Controller;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
 
 class ApartmentController extends Controller
 {
-    public function indexAction($id)
+    public function apartmentAction($id)
     {
         if(!is_numeric($id) OR ($id <= 0)){
             return $this->redirectToRoute('homepage');
@@ -24,9 +27,47 @@ class ApartmentController extends Controller
             if($apartment->isParking()) $options[] = 'images/icon_parkolo.png';
             if($apartment->isSpecialparking()) $options[] = 'images/icon_mozg.png';
 
-            return $this->render('SzakdolgozatLayoutBundle::apartment.html.twig', array( 'apartment' => $apartment, 'options' => $options));
+            $rooms = $apartment->getRooms();
+
+            return $this->render('SzakdolgozatLayoutBundle::apartment.html.twig', array( 'apartment' => $apartment, 'options' => $options, 'rooms' => $rooms));
         }
         return $this->redirectToRoute('homepage');
 
+    }
+
+    public function apartmentsAction(Request $request)
+    {
+        $apartmentRepository = $this->getDoctrine()->getManager()->getRepository('SzakdolgozatLayoutBundle:Apartment');
+        $apartments = $apartmentRepository->findAll();
+
+        $defaultData = array('name' => '');
+        $form = $this->createFormBuilder($defaultData)
+            ->add('name', TextType::class, array('label' => 'Apartman', 'required' => false))
+            ->add('save', SubmitType::class, array('label' => 'Keres'))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $name = $form->getData();
+
+            if($name['name'] != ''){
+                $em = $this->getDoctrine()->getManager();
+                $qb = $em->createQueryBuilder();
+
+                $q  = $qb->select(array('p'))
+                    ->from('SzakdolgozatLayoutBundle:Apartment', 'p')
+                    ->where(
+                        $qb->expr()->like('p.name', ':pName')
+
+                    )
+                    ->setParameter('pName', '%'.$name['name'].'%')
+                    ->getQuery();
+
+                $apartments = $q->getResult();
+            }
+        }
+
+        return $this->render('SzakdolgozatLayoutBundle::apartments.html.twig', array( 'apartments' => $apartments, 'form' => $form->createView()));
     }
 }

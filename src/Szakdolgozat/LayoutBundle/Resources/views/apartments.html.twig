@@ -6,23 +6,18 @@
 {% endblock %}
 
 {% block tartalom %}
+    <div id="body-title">Apartmanok</div>
     <div id="szuro">
         <p>Szűrési feltételek</p>
-        <form action="{{ path('szallasok') }}" method="post">
-            <input type="search" name="kereses" maxlength="100" placeholder="Keresés.."/><br>
-            <select name="nev" id="nev">
-                <option value="0">Válasszon..</option>
-                {% for apartment in apartments %}
-                    <option value="{{ apartment.id }}">{{ apartment.name }}</option>
-                {% endfor %}
-            </select>
-        </form>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
     </div>
     <div class="clear"></div>
     {% for apartment in apartments %}
         <article>
             <header>
-                <a title="További információk" href="{{ path('szallas', {'id':apartment.id } ) }}">{{ apartment.name }}</a>
+                <a title="További információk" href="{{ path('apartman', {'id':apartment.id } ) }}">{{ apartment.name }}</a>
             </header>
             <div class="ajanlat-body">
                 <div class="kep">
@@ -34,7 +29,7 @@
                 </div>
                 <div class="clear"></div>
                 <p>
-                    <a title="További információk" href="">
+                    <a title="További információk" href="{{ path('apartman', {'id':apartment.id } ) }}">
                         <img src="{{ asset('images/info.png') }}" width="30" alt="Megtekintés">
                     </a>
                 </p>

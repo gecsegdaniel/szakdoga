@@ -12,9 +12,9 @@ homepage:
     requirements:
      methods: GET|POST
 
-szallasok:
-    path:     /szallasok
-    defaults: { _controller: SzakdolgozatLayoutBundle:Apartments:index }
+apartmanok:
+    path:     /apartmanok
+    defaults: { _controller: SzakdolgozatLayoutBundle:Apartment:apartments }
     requirements:
      methods: GET|POST
 
@@ -24,8 +24,20 @@ kapcsolat:
     requirements:
      methods: GET|POST
 
-szallas:
-    path:     /szallas/{id}
-    defaults: { _controller: SzakdolgozatLayoutBundle:Apartment:index, id: 0 }
+apartman:
+    path:     /apartman/{id}
+    defaults: { _controller: SzakdolgozatLayoutBundle:Apartment:apartment, id: 0 }
+    requirements:
+     methods: GET
+
+foglalasaim:
+    path:     /foglalasaim
+    defaults: { _controller: SzakdolgozatLayoutBundle:Reservation:myreservation }
+    requirements:
+     methods: GET
+
+foglalas:
+    path:     /foglalas/{id}
+    defaults: { _controller: SzakdolgozatLayoutBundle:Reservation:newreservation, id: 0 }
     requirements:
      methods: GET

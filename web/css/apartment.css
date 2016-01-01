@@ -99,4 +99,6 @@
 
 @media only screen and (max-width : 550px){
     #tabok table{ font-size: 10px; }
+    #fo-leiras{ width: 98%; height: auto; margin: 5px auto; }
+    #tabok{ width: 98%; margin: 5px auto; }
 }

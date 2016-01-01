@@ -2,6 +2,7 @@
 
 namespace Szakdolgozat\LayoutBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -78,15 +79,11 @@ class Apartment
     private $highlighted;
 
     /**
-     * Apartment constructor.
-     * @param $climate
-     * @param $tv
-     * @param $wifi
-     * @param $restaurant
-     * @param $parking
-     * @param $specialparking
-     * @param $highlighted
+     * @ORM\OneToMany(targetEntity="Room", mappedBy="apartment")
      */
+    private $rooms;
+
+
     public function __construct()
     {
         $this->climate = false;
@@ -96,6 +93,7 @@ class Apartment
         $this->parking = false;
         $this->specialparking = false;
         $this->highlighted = false;
+        $this->rooms = new ArrayCollection();
     }
 
     /**
@@ -201,6 +199,14 @@ class Apartment
     public function isSpecialparking()
     {
         return $this->specialparking;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRooms()
+    {
+        return $this->rooms;
     }
 
     /**

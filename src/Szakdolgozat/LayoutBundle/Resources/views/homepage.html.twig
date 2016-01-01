@@ -6,11 +6,11 @@
 {% endblock %}
 
 {% block tartalom %}
-    <h4>Kiemelt szállások</h4>
+    <div id="body-title">Kiemelt apartmanok</div>
     {% for apartment in apartments %}
         <article>
             <header>
-                <a title="További információk" href="{{ path('szallas', {'id':apartment.id } ) }}">{{ apartment.name }}</a>
+                <a title="További információk" href="{{ path('apartman', {'id':apartment.id } ) }}">{{ apartment.name }}</a>
             </header>
             <div class="ajanlat-body">
                 <div class="kep">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="clear"></div>
                 <p>
-                    <a title="További információk" href="">
+                    <a title="További információk" href="{{ path('apartman', {'id':apartment.id } ) }}">
                         <img src="{{ asset('images/info.png') }}" width="30" alt="Megtekintés">
                     </a>
                 </p>

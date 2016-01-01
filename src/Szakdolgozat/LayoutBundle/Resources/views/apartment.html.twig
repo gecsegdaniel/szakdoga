@@ -47,6 +47,16 @@
                         <td id="ar">Ára</td>
                         <td id="foglalo">Foglal</td>
                     </tr>
+                    {% for room in rooms %}
+                        <tr>
+                            <td>{{ room.roomnumber }}</td>
+                            <td>{{ room.spot }}</td>
+                            <td>{{ room.numberofbed }}</td>
+                            <td>{{ room.airspace }}</td>
+                            <td>{{ room.price|number_format(0, '.', ' ') }} Ft/fő/nap</td>
+                            <td><a href="{{ path('foglalas', {'id' : room.id }) }}">Lefoglalom</a></td>
+                        </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>
@@ -60,6 +70,16 @@
 
                 </div>
             </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block counter %}
+    <div id="top-oldal">
+        <span class="ablakcim">Díjkalkulátor</span>
+        <div class="ablak">
+            melyik szoba:
+            hány napra:
         </div>
     </div>
 {% endblock %}

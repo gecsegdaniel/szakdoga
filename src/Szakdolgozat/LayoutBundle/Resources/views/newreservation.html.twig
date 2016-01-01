@@ -1,0 +1,20 @@
+{% extends 'SzakdolgozatLayoutBundle:Main:index.html.twig' %}
+
+{% block stilusok %}
+    {{  parent() }}
+    <link rel="stylesheet" href="{{ asset('css/reservation.css') }}" type="text/css" />
+{% endblock %}
+
+{% block tartalom %}
+    <div id="body-title">Szobafoglalás</div>
+    <div id="container">
+        <div id="apartment"><a href="{{ path('apartman', {'id':room.apartment.id } ) }}">{{ room.apartment }}</a></div>
+        <div id="room">{{ room }} szoba</div>
+        <div class="clear"></div>
+        <div id="reservation-details">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

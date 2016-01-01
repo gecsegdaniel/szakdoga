@@ -1,0 +1,25 @@
+#container{
+    width: 98%; padding: 5px 1%; height: auto; margin: 5px auto;
+    border-radius: 10px;  -moz-border-radius: 10px;  -webkit-border-radius: 10px;
+    border: 1px solid #666; background-color: #FFF;
+}
+#apartment, #room{ float: left; width: 50%; padding: 5px 0; }
+
+#reservation-details{ width: 98%; padding: 5px 1%; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #666; }
+#reservation-details span{ font-weight: bold; }
+
+#form div label{ font-weight: bold; margin-right: 5px;  display:inline-block; float: left; padding-top: 3px;  width: 120px;}
+#form input, #form textarea{ margin-top: 5px; margin-bottom: 5px; display:inline-block; margin-left:20px; border: 1px solid #cc0033; width: 35%; resize: none; }
+#form div div{ background-color: #ffcc00; width: 50%; }
+#form button{ background-color: #cc0033; color: #fff;
+    width: 100px; height: 40px;
+    border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width : 550px){
+    #container{ width: 95% }
+}

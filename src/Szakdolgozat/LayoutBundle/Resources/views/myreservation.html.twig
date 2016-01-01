@@ -1,0 +1,25 @@
+{% extends 'SzakdolgozatLayoutBundle:Main:index.html.twig' %}
+
+{% block stilusok %}
+    {{  parent() }}
+    <link rel="stylesheet" href="{{ asset('css/reservation.css') }}" type="text/css" />
+{% endblock %}
+
+{% block tartalom %}
+    <div id="body-title">Foglalásaim</div>
+    {{ information }}<br>
+    {% for reservation in reservations %}
+        <div id="container">
+            <div id="apartment"><a href="{{ path('apartman', {'id':reservation.room.apartment.id } ) }}">{{ reservation.room.apartment }}</a></div>
+            <div id="room">{{ reservation.room }} szoba</div>
+            <div class="clear"></div>
+            <div id="reservation-details">
+                <span>Foglalás azonosítója:</span> {{ reservation.id }}<br/>
+                <span>Hány napra:</span> {{ reservation.numberofdays }} nap<br/>
+                <span>Foglalás kezdete:</span> {{ reservation.arrivaldate|date('Y.m.d.') }}<br/>
+                <span>Foglalás ára:</span> {{ reservation.numberofdays*reservation.room.price }} Ft/fő<br/>
+                <span>Speciális igény:</span> {{ reservation.specialrequest }}<br/>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

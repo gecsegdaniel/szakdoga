@@ -14,7 +14,7 @@ class MenuBuilder implements ContainerAwareInterface
         $menu = $factory->createItem('root');
 
         $menu->addChild('Főoldal', array('route' => 'homepage'));
-        $menu->addChild('Szállások', array('route' => 'szallasok'));
+        $menu->addChild('Apartmanok', array('route' => 'apartmanok'));
         $menu->addChild('Kapcsolat', array('route' => 'kapcsolat'));
 
         return $menu;

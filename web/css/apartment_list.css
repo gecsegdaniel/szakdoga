@@ -5,7 +5,7 @@ article{
     box-shadow: 0 0 1px 2px #666;
 }
 article .ajanlat-body{
-    margin-top: 5px; border: 1px solid #666;
+    margin-top: 5px; border: 1px solid #cc0033;
     border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
 }
 article header{
@@ -17,6 +17,17 @@ article header a{ text-decoration: none; color: #fff; }
 article p{ text-align: right; padding: 5px; margin: 0; }
 .kep{ float: left; width: 110px; height: auto; text-align: center; padding: 5px 5px; margin: 5px 5px; background-color: #e6e1e3; }
 .leiras{ padding: 5px; }
+
+#form div label{ font-weight: bold; margin-right: 5px;  display:inline-block; float: left; padding-top: 3px;  width: 50px;}
+#form input{ margin-top: 5px; margin-bottom: 5px; display:inline-block; margin-left:20px; border: 1px solid #cc0033; width: 35%;}
+#form button{ background-color: #cc0033; color: #fff;
+    width: 80px; height: 40px;
+    border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
 
 @media only screen and (max-width : 550px){ article{ float: none; margin: 0 auto; width: 95% } }
 

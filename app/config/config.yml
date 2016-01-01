@@ -60,13 +60,14 @@ swiftmailer:
     host:      "%mailer_host%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
+    encryption: ssl
     spool:     { type: memory }
 
 
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: Szakdolgozat\LoginBundle\Entity\User
+    user_class: Szakdolgozat\LayoutBundle\Entity\User
 
 knp_menu:
     twig:
@@ -81,7 +82,8 @@ easy_admin:
     entities:
         User:
           label: 'Felhasználók'
-          class: Szakdolgozat\LoginBundle\Entity\User
+          #class: Szakdolgozat\LoginBundle\Entity\User
+          class: Szakdolgozat\LayoutBundle\Entity\User
           list:
             title: '%%entity_label%% listája'
             fields:
@@ -114,6 +116,39 @@ easy_admin:
               - {property: 'name', label: 'Neve'}
               - {property: 'city', label: 'Város'}
               - {property: 'highlighted', label: 'Kiemelt'}
+          new:
+            title: 'Új apartman felvitele'
+            fields: ['name', 'city', 'address', 'description', 'webpage', 'climate', 'tv', 'wifi', 'restaurant', 'parking', 'specialparking', 'highlighted']
+          show:
+            fields: ['name', 'city', 'address', 'description', 'webpage', 'climate', 'tv', 'wifi', 'restaurant', 'parking', 'specialparking', 'highlighted']
+          edit:
+            fields: ['name', 'city', 'address', 'description', 'webpage', 'climate', 'tv', 'wifi', 'restaurant', 'parking', 'specialparking', 'highlighted']
+        Room:
+          label: 'Szobák'
+          class: Szakdolgozat\LayoutBundle\Entity\Room
+          list:
+            title: '%%entity_label%% listája'
+            fields:
+              - {property: 'apartment', label: 'Apartman'}
+              - {property: 'roomnumber', label: 'Szobaszám'}
+          new:
+            fields: ['apartment', 'roomnumber', 'price', 'spot', 'airspace','numberofbed']
+          show:
+            fields: ['id', 'apartment', 'roomnumber', 'price', 'spot', 'airspace','numberofbed']
+          edit:
+            fields: ['apartment', 'roomnumber', 'price', 'spot', 'airspace','numberofbed']
+        Reservation:
+          label: 'Foglalások'
+          class: Szakdolgozat\LayoutBundle\Entity\Reservation
+          disabled_actions: ['new']
+          list:
+            title: '%%entity_label%% listája'
+            fields: ['room.apartment', 'room', 'user', 'arrivaldate', 'numberofdays', 'specialrequest']
+          show:
+            fields: ['room.apartment', 'room', 'user', 'arrivaldate', 'numberofdays', 'specialrequest']
+          edit:
+            fields: ['room', 'user', 'arrivaldate', 'numberofdays', 'specialrequest']
+
 
 
     design:

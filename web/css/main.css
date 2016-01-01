@@ -14,8 +14,7 @@ a:hover{ text-decoration: underline; }
     width: 70%;
     border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
 }
-#menu ul{ list-style:  none; margin: 0 auto; float: left; }
-#menu .login-ul{ list-style:  none; margin: 0 auto;  float: right; }
+#menu ul{ list-style:  none; margin: 0 auto; float: left; padding-left: 50px; }
 #menu ul li{ float: left; display: inline; height: 30px; padding: 5px 10px; width: 150px; }
 #menu ul li a{
     text-decoration: none; display: block;
@@ -64,7 +63,8 @@ a:hover{ text-decoration: underline; }
     overflow: auto;
 }
 
-#belepes{ width: 30%;  height: 90px;  float: left; }
+#belepes{ width: 30%;  min-height: 90px; height: auto;  float: left; overflow: auto; }
+#belepes ul{ list-style: none; margin: 0 auto; float: left;padding: 0; }
 
 #kereses{ width: 40%;  height: 90px;  float: left; }
 #kereses table{ width: 90%; }
@@ -79,8 +79,11 @@ a:hover{ text-decoration: underline; }
      border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
 }
 
-#kozossegi{ width: 30%;  height: 90px;  float: left; }
+#kozossegi{ width: 30%;  min-height: 90px; height: auto;  float: left; overflow: auto; }
 #kozossegi .ablakcim, #kozossegi .ablak{ float: right; }
+#kozossegi ul{ list-style: none; margin: 0 auto; float: left; padding: 0; }
+#kozossegi ul li{ float: left; display: inline; margin: 0 auto; }
+#kozossegi ul li a{ text-decoration: none; display: block; text-align: center; }
 
 #body-div{
     overflow: hidden;
@@ -89,6 +92,11 @@ a:hover{ text-decoration: underline; }
 }
 
 #tartalom-div { height: auto; min-height: 500px; width: 70%;  float: left; }
+#body-title {
+    height: auto; width: 98%; padding: 5px 1%; margin: 5px 0;
+    background-color: #FFF; color: #666; font-size: larger;
+    border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px; border: 1px solid #666;
+}
 
 #top-oldal, #mid-oldal{ float: left; width: 30%; margin-bottom: 10px; }
 #top-oldal .ablakcim, #top-oldal .ablak, #mid-oldal .ablakcim, #mid-oldal .ablak{ float: right; }
@@ -112,14 +120,15 @@ footer p{ color: #fff;  padding: 5px 0;  margin-left: 10px;  }
     #body-div{ width: 95%; }
     footer{ width: 95%; }
 
-    #menu ul{ margin: 0; }
-    #menu ul li{ width: 80px; height: 25px; padding: 5px 2px; }
+    #menu ul{ margin: 0; padding-left: 10px; }
+    #menu ul li{ width: 80px; height: 25px; }
     #menu ul li a{ font-size: 13px; }
 
     #kereses, #belepes, #kozossegi, #tartalom-div, #top-oldal, #mid-oldal{ width: 100%; height: auto; margin: 5px auto; }
     #kozossegi .ablakcim, #kozossegi .ablak{ float: none; }
 
     .ablakcim, .ablak, #belepes div, #kereses div, #kozossegi div, #top-oldal div, #mid-oldal div{ float: none; margin: 0 auto; width: 95% }
+    #body-title{ float: none; margin: 5px auto; width: 95% }
 }
 
 /*

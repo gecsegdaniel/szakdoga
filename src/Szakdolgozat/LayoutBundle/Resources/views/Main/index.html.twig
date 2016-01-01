@@ -23,8 +23,14 @@
         <div class="ablak">
             {% if is_granted("IS_AUTHENTICATED_FULLY") %}
                 Üdvözlöjük {{ app.user.username }}!<br/>
-                <a href="{{ path('fos_user_profile_show') }}">Profil</a>
-                <a href="{{ path('fos_user_security_logout') }}">Kilépés</a>
+                <ul>
+                    <li><a href="{{ path('fos_user_profile_show') }}">Profil</a></li>
+                    <li><a href="{{ path('foglalasaim') }}">Foglalásaim</a></li>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <li><a href="admin" target="_blank">Admin felület</a></li>
+                    {% endif %}
+                    <li><a href="{{ path('fos_user_security_logout') }}">Kilépés</a></li>
+                </ul>
             {% else %}
                 Az oldal teljeskörű használatához jelentkezzen be!<br/>
                 <a href="{{ path('fos_user_security_login') }}">Belépés</a>
@@ -49,10 +55,13 @@
     </div>
 
     <div id="kozossegi">
-        <span class="ablakcim">Közösségi izék</span>
+        <span class="ablakcim">Közösségi oldalak</span>
         <div class="ablak">
-            FB <br>
-            Twiit
+            <ul>
+                <li><a href="https://www.facebook.com/" target="_blank"><img src="{{ asset('images/facebook.png') }}" alt=""></a></li>
+                <li><a href="https://twitter.com" target="_blank"><img src="{{ asset('images/twitter.png') }}" alt=""></a></li>
+                <li><a href="https://plus.google.com" target="_blank"><img src="{{ asset('images/googleplus.png') }}" alt=""></a></li>
+            </ul>
         </div>
     </div>
     <div class="clear"></div>
@@ -63,12 +72,8 @@
         {% block tartalom %}
         {% endblock %}
     </div>
-    <div id="top-oldal">
-        <span class="ablakcim">Szoba-kereső</span>
-        <div class="ablak">
-            nana mi ez?
-        </div>
-    </div>
+    {% block counter %}
+    {% endblock %}
     <div id="mid-oldal">
         <span class="ablakcim">Hasznos likek</span>
         <div class="ablak">
