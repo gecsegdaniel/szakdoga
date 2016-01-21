@@ -24,9 +24,9 @@ class Apartment
     private $name;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      */
-    private $city;
+    private $city_id;
 
     /**
      * @ORM\Column(type="string")
@@ -82,6 +82,12 @@ class Apartment
      * @ORM\OneToMany(targetEntity="Room", mappedBy="apartment")
      */
     private $rooms;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="apartments")
+     * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     */
+    private $city;
 
 
     public function __construct()
@@ -218,6 +224,14 @@ class Apartment
     }
 
     /**
+     * @return mixed
+     */
+    public function getCityId()
+    {
+        return $this->city_id;
+    }
+
+    /**
      * @param string $name
      */
     public function setName($name)
@@ -311,5 +325,13 @@ class Apartment
     public function setHighlighted($highlighted)
     {
         $this->highlighted = $highlighted;
+    }
+
+    /**
+     * @param mixed $city_id
+     */
+    public function setCityId($city_id)
+    {
+        $this->city_id = $city_id;
     }
 }

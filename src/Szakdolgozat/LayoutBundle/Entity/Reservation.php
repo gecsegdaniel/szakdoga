@@ -43,6 +43,11 @@ class Reservation
     private $specialrequest;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $status_id;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Room", inversedBy="reservations")
      * @ORM\JoinColumn(name="room_id", referencedColumnName="id")
      */
@@ -54,6 +59,11 @@ class Reservation
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Status", inversedBy="reservations")
+     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
+     */
+    private $status;
 
     /**
      * @return mixed
@@ -173,5 +183,37 @@ class Reservation
     public function setUser($user)
     {
         $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatusId()
+    {
+        return $this->status_id;
+    }
+
+    /**
+     * @param mixed $status_id
+     */
+    public function setStatusId($status_id)
+    {
+        $this->status_id = $status_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
     }
 }

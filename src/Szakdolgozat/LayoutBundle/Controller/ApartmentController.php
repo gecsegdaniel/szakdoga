@@ -3,6 +3,7 @@
 namespace Szakdolgozat\LayoutBundle\Controller;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -37,12 +38,22 @@ class ApartmentController extends Controller
 
     public function apartmentsAction(Request $request)
     {
-        $apartmentRepository = $this->getDoctrine()->getManager()->getRepository('SzakdolgozatLayoutBundle:Apartment');
-        $apartments = $apartmentRepository->findAll();
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder();
+        $q  = $qb->select(array('Ap'))
+            ->from('SzakdolgozatLayoutBundle:Apartment', 'Ap');
 
-        $defaultData = array('name' => '');
+        $defaultData = array('name' => '', 'city' => '');
         $form = $this->createFormBuilder($defaultData)
             ->add('name', TextType::class, array('label' => 'Apartman', 'required' => false))
+            ->add('city', EntityType::class, array(
+                'class' => 'SzakdolgozatLayoutBundle:City',
+                'choice_label' => 'city',
+                'label' => 'Város',
+                'required' => false,
+                'placeholder' => 'Nincs kiválasztva',
+                'empty_data'  => null
+            ))
             ->add('save', SubmitType::class, array('label' => 'Keres'))
             ->getForm();
 
@@ -51,23 +62,29 @@ class ApartmentController extends Controller
         if ($form->isValid()) {
             $name = $form->getData();
 
-            if($name['name'] != ''){
-                $em = $this->getDoctrine()->getManager();
-                $qb = $em->createQueryBuilder();
-
-                $q  = $qb->select(array('p'))
-                    ->from('SzakdolgozatLayoutBundle:Apartment', 'p')
-                    ->where(
-                        $qb->expr()->like('p.name', ':pName')
-
-                    )
+            if($name['name'] != '' AND $name['city'] != null){
+                $q  = $q->where($qb->expr()->like('Ap.name', ':pName'))
+                    ->andWhere('Ap.city_id = :pCityId')
+                    ->setParameter('pName', '%'.$name['name'].'%')
+                    ->setParameter('pCityId', $name['city']->getId())
+                    ->getQuery();
+            } elseif($name['name'] != '' AND $name['city'] === null){
+                $q  = $q->where($qb->expr()->like('Ap.name', ':pName'))
                     ->setParameter('pName', '%'.$name['name'].'%')
                     ->getQuery();
-
-                $apartments = $q->getResult();
+            } elseif($name['name'] == '' AND $name['city'] != null){
+                $q  = $q->where('Ap.city_id = :pCityId')
+                    ->setParameter('pCityId', $name['city']->getId())
+                    ->getQuery();
             }
         }
 
-        return $this->render('SzakdolgozatLayoutBundle::apartments.html.twig', array( 'apartments' => $apartments, 'form' => $form->createView()));
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $q,
+            $request->query->getInt('page', 1),2
+        );
+
+        return $this->render('SzakdolgozatLayoutBundle::apartments.html.twig', array('pagination' => $pagination, 'form' => $form->createView()));
     }
 }

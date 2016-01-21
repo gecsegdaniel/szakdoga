@@ -36,10 +36,14 @@ class ReservationController extends Controller
             return $this->redirectToRoute('homepage');
         }
 
+        $statusRepository = $this->getDoctrine()->getManager()->getRepository('SzakdolgozatLayoutBundle:Status');
+        $standardStatus = $statusRepository->find(1);
+
         $reservation = new Reservation();
         $reservation->setUser($this->get('security.token_storage')->getToken()->getUser());
         $reservation->setRoom($room);
         $reservation->setArrivaldate(new \DateTime('tomorrow'));
+        $reservation->setStatus($standardStatus);
 
         $form = $this->createFormBuilder($reservation)
             ->add('numberofdays', IntegerType::class, array('label' => 'Hány napra'))

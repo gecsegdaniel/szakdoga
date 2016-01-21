@@ -20,6 +20,7 @@ article p{ text-align: right; padding: 5px; margin: 0; }
 
 #form div label{ font-weight: bold; margin-right: 5px;  display:inline-block; float: left; padding-top: 3px;  width: 50px;}
 #form input{ margin-top: 5px; margin-bottom: 5px; display:inline-block; margin-left:20px; border: 1px solid #cc0033; width: 35%;}
+#form select{ margin-top: 5px; margin-bottom: 5px; display:inline-block; margin-left:20px; border: 1px solid #cc0033; width: 35%;}
 #form button{ background-color: #cc0033; color: #fff;
     width: 80px; height: 40px;
     border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;
